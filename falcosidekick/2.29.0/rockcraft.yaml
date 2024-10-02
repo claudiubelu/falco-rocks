@@ -15,7 +15,6 @@ build-base: ubuntu@24.04
 
 platforms:
   amd64:
-  arm64:
 
 environment:
   APP_VERSION: 2.29.0
