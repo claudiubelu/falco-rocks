@@ -53,6 +53,10 @@ def _get_falco_helm_cmd(falco_version: str):
         k8s_util.HelmImage(driver_loader_rock.image, "driver.loader.initContainer"),
     ]
 
+    set_configs = [
+        "driver.kind=modern_ebpf",
+    ]
+
     return k8s_util.get_helm_install_command(
         "falco",
         "falco",
@@ -60,6 +64,7 @@ def _get_falco_helm_cmd(falco_version: str):
         repository="https://falcosecurity.github.io/charts",
         images=images,
         runAsUser=0,
+        set_configs=set_configs,
         split_image_registry=True,
     )
 
